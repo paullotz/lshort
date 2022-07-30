@@ -34,38 +34,36 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="bg-zinc-800 h-screen">
+    <div className="flex flex-col h-screen w-screen items-center justify-center">
       <Head>
         <title>lshort</title>
       </Head>
 
-      <div className="flex flex-col items-center jusitfy-center">
-        <h1 className="text-green-700 text-3xl font-cascadia font-bold mt-60 sm:mt-10">
-          Link Shortener
-        </h1>
+      <h1 className="text-green-700 text-3xl font-cascadia font-bold">
+        Link Shortener
+      </h1>
 
-        {error.show && <p className={"text-red-500"}>Error: {error.message}</p>}
-        <input
-          type={"text"}
-          className="rounded-md p-2 w-80 mb-2 mt-2 sm:w-8/12"
-          value={short ? short : link}
-          onChange={(e) => setLink(e.target.value)}
-          placeholder={"https://google.com"}
-        />
-        <button
-          className="bg-green-700 rounded-md p-2 border-spacing-2 xl:ml-2 font-cascadia w-80 sm:w-8/12"
-          onClick={short ? handleBtnClipboardClick : handleBtnShortClick}
-        >
-          {short ? "copy to clipboard" : "short"}
-        </button>
-        <a
-          href="https://github.com/paullotz/lshort"
-          className="mt-2 font-cascadia text-white"
-          target={"_blank"}
-        >
-          @github
-        </a>
-      </div>
+      {error.show && <p className={"text-red-500"}>Error: {error.message}</p>}
+      <input
+        type={"text"}
+        className="rounded-md p-2 w-80 mb-2 mt-2 sm:w-8/12"
+        value={short ? short : link}
+        onChange={(e) => setLink(e.target.value)}
+        placeholder={"https://google.com"}
+      />
+      <button
+        className="bg-green-700 rounded-md p-2 border-spacing-2 font-cascadia w-80 sm:w-8/12"
+        onClick={short ? handleBtnClipboardClick : handleBtnShortClick}
+      >
+        {short ? "copy to clipboard" : "short"}
+      </button>
+      <a
+        href="https://github.com/paullotz/lshort"
+        className="mt-2 font-cascadia text-white"
+        target={"_blank"}
+      >
+        @github
+      </a>
     </div>
   );
 };
